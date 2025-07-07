@@ -15,7 +15,7 @@ const createMainWindow = () => {
   const win = new BrowserWindow({
     width: 900,
     height: 700,
-    minimizable: false,
+    minimizable: true,
     resizable: true,
     icon: __dirname + '/frontend/assets/favicon.png'
   })
@@ -23,7 +23,20 @@ const createMainWindow = () => {
   win.loadFile('./src/frontend/index.html')
 }
 
+const createDecoyWindow = () => {
+  const win = new BrowserWindow({
+    width: 900,
+    height: 700,
+    minimizable: true,
+    resizable: true,
+    icon: __dirname + '/frontend/assets/favicon.png'
+  })
+
+  win.loadFile('./src/frontend/Decoy.html')
+}
+
 app.whenReady().then(() => {
   createMainWindow()
   createEnterCDataWindow()
+  createDecoyWindow()
 })
